@@ -8,6 +8,8 @@
 
 
 #define TEST_WRAPAROUND (0)
+#define UNIT_TEST (0)
+
 
 /* The one very important use case of function pointer is, interrupt routine */
 
