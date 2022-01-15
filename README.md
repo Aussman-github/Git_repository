@@ -14,7 +14,7 @@
 
 # Resources:
 +	Documentation links, etc.
-> Google Drive documentations
+> **Google Drive** documentations
 	
 
 
