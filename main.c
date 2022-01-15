@@ -18,6 +18,13 @@ Licence ..... : GPL
 #define TEST_WRAPAROUND (0)
 #define UNIT_TEST (0)
 
+#define BMW_ONLY (1)
+#define DS5_ONLY (0)
+#define DAIMLER_ONLY (0)
+
+#if ( (BMW_ONLY + DS5_ONLY + DAIMLER_ONLY) > 1)
+#error "Only one config car should be defined"
+#endif
 
 /* The one very important use case of function pointer is, interrupt routine */
 
