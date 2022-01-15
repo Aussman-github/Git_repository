@@ -14,6 +14,7 @@ Licence ..... : GPL
 #include <string.h>
 #include <limits.h>
 
+#define MAX(a,b) (a>b)?a:b
 
 #define TEST_WRAPAROUND (0)
 #define UNIT_TEST (0)
