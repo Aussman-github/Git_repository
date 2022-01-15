@@ -7,7 +7,7 @@
 #include <limits.h>
 
 
-
+#define TEST_WRAPAROUND (0)
 
 /* The one very important use case of function pointer is, interrupt routine */
 
@@ -84,9 +84,10 @@ int main (int argc, char *argv[]){
     resultAdd = wrapperFunction(addFunction);
     resultMultiply = wrapperFunction(multiplyFunction);
 
-    printf("result = %f\n", resultAdd);
-    printf("result = %2f\n", resultMultiply);
+    printf("result add = %f\n", resultAdd);
+    printf("result multiply = %2f\n", resultMultiply);
     printf("%c\n", char1);
+	printf("test\r\n");
     // Initialize timer1
     // Disable interrupt for timer1
     // Set User API
@@ -96,7 +97,7 @@ int main (int argc, char *argv[]){
     switch(myVar){
         case enuJanuary:
         {
-			printf("nop");
+			printf("January\n");
 
         }
         break;
@@ -122,10 +123,11 @@ int main (int argc, char *argv[]){
     printf("%s\n", sigrecord1.signame);
     printf("%s\n", sigrecord1.sigdesc);
 
+#if ((defined TEST_WRAPAROUND) && (TEST_WRAPAROUND == 1))
     do{
         printf("%d\n", counter++);
     }while(counter !=UINT16_MAX);
-
+#endif
     return EXIT_SUCCESS;
 }
 
