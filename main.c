@@ -85,6 +85,7 @@ int main (int argc, char *argv[]){
     double resultMultiply = 0;
     _Bool var1 = true;
     char char1 = 'a';
+    char char2 = 'b';
     sigrecord_t sigrecord1;
 	codes_t myVar = 0x01;
 
