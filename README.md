@@ -1,12 +1,12 @@
 ## README
 > Markdown is a presentation language
 # Project presentation:
-
+    > Project used only for Git tests
 
 
 
 # Project usage:
-
+    > Git tests
 
 
 
