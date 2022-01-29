@@ -13,6 +13,9 @@ Licence ..... : GPL
 #include <stdbool.h>
 #include <string.h>
 #include <limits.h>
+#include <assert.h>
+#include "debug.h"
+
 
 #define MAX(a,b) (a>b)?a:b
 #define MIN(a,b) (a<b)?a:b
@@ -83,18 +86,37 @@ static uint16_t counter;
 
 int main (int argc, char *argv[]){
     _Atomic double resultAdd = 0;
-    double resultMultiply = 0;
+    long double resultMultiply = 0;
     _Bool var1 = true;
     char char1 = 'a';
     char char2 = 'b';
+    void *pu8var = NULL;
     sigrecord_t sigrecord1;
 	codes_t myVar = 0x01;
+    float fvar1 = -275.2;
+    unsigned char uc1 = UCHAR_MAX; // 0xFF
+    size_t varsize = sizeof resultMultiply;
+    pu8var = &var1;
 
+    dbgCheckValidAddr(pu8var);
+
+    if(dbgValidAddr(pu8var)){}
+    else{
+        __trap();
+    }
     fptraddFunction = addFunction;
     fptrMultiplyFunction = multiplyFunction;
 
     resultMultiply = fptrMultiplyFunction(2.5, 2);
     resultAdd = fptraddFunction(3, 4);
+    printf("%x\r\n", ~uc1);
+    printf("varsize number of bits = %d\r\n", varsize);
+    printf("fvar1 = 0x%x\r\n", fvar1);
+    printf("size of long long int = %d\r\n", sizeof(long long int));
+    printf("size of long int = %d\r\n", sizeof(long int));
+    printf("size of int = %d\r\n", sizeof(int));
+    printf("size of short int = %d\r\n", sizeof(short int));
+    printf("size of signed char = %d\r\n", sizeof(signed char));
 
     strcpy(sigrecord1.sigdesc, "Interrupt from Keyboard");
     strcpy(sigrecord1.signame, "SIG");
